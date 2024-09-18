@@ -12,7 +12,7 @@ const Links = [
   },
   {
     title: "Our Products",
-    links: ["About Us", "Contact Us", "Become a Partner"],
+    links: ["Home Page", "Search", "Catalog"],
   },
 ];
 
