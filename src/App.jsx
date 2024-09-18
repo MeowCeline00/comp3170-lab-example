@@ -1,13 +1,77 @@
+import FooterColumn from "./components/FooterColumn";
+import Product from "./components/Product";
+
+const Links = [
+  {
+    title: "Our store",
+    links: ["About Us", "Contact Us", "Become a Partner"],
+  },
+  {
+    title: "Our Policies",
+    links: ["Return Policies", "Shipping Policy", "Terms of Services"],
+  },
+  {
+    title: "Our Products",
+    links: ["About Us", "Contact Us", "Become a Partner"],
+  },
+];
+
+const PRODUCTS = [
+  {
+    name: "chair",
+    image_url: "https://upload.wikimedia.org/wikipedia/commons/8/86/Fauteuil_Riviera_Chaise_Bleue_Neptune_SBR.jpg",
+    price: 20,
+  },
+  {
+    name: "desk",
+    image_url: "https://upload.wikimedia.org/wikipedia/commons/2/28/%22Tibattant%22_Desk_MET_DP291946.jpg",
+    price: 500,
+  },
+  {
+    name: "shelf",
+    image_url: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Books_Shelf..jpg",
+    price: 400,
+  },
+  {
+    name: "lamp",
+    image_url: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Lamp_in_Poland.jpg",
+    price: 0,
+  },
+  {
+    name: "sofa",
+    image_url: "https://upload.wikimedia.org/wikipedia/commons/2/29/ORANGE_SOFA.jpg",
+    price: 2000,
+  },
+  {
+    name: "coffee table",
+    image_url: "https://upload.wikimedia.org/wikipedia/commons/1/14/Glass_coffee_table.jpg",
+    price: 800,
+  },
+
+]
+
 function App() {
+  const footerColumnList = Links.map(column => (
+    <FooterColumn key={column.title} data={column} />
+  ));
+
+  const productList = PRODUCTS.map(product => <Product key={product.name} product={product} />)
+
   return (
-    <div class="app">
+    <div className="app">
       <section id="content">
         <header>
           <div>
             <h1>Shop Mart</h1>
             <div>
-              <button className="icon-btn"><span>&#129293;</span><span className="badge">2</span></button>
-              <button className="icon-btn"><span>&#128722;</span><span className="badge">1</span></button>
+              <button className="icon-btn">
+                <span>&#129293;</span>
+                <span className="badge">2</span>
+              </button>
+              <button className="icon-btn">
+                <span>&#128722;</span>
+                <span className="badge">1</span>
+              </button>
             </div>
           </div>
           
@@ -23,82 +87,14 @@ function App() {
               <button type="button">Go</button>
             </form>
           </div>
-          
         </header>
         <main>
-          <div class="product">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Asics_Gel-Cumulus_22.jpg" alt="" />
-            <p>
-              <span class="pr-name">Product 1</span>
-              <span class="pr-price">$20</span>
-            </p>
-          </div>
-          <div class="product">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Shirt%2C_men%27s_%28AM_2015.44.1-1%29.jpg" alt="" />
-            <p>
-              <span class="pr-name">Product 1</span>
-              <span class="pr-price">$20</span>
-            </p>
-          </div>
-          <div class="product">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Asics_Gel-Cumulus_22.jpg" alt="" />
-            <p>
-              <span class="pr-name">Product 1</span>
-              <span class="pr-price">$20</span>
-            </p>
-          </div>
-          <div class="product">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Jeans_for_men.jpg" alt="" />
-            <p>
-              <span class="pr-name">Product 1</span>
-              <span class="pr-price">$20</span>
-            </p>
-          </div>
-          <div class="product">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Asics_Gel-Cumulus_22.jpg" alt="" />
-            <p>
-              <span class="pr-name">Product 1</span>
-              <span class="pr-price">$20</span>
-            </p>
-          </div>
+          {productList}
         </main>
       </section>
       <footer>
-        <div>
-          <div>
-            <h3>Our store</h3>
-            <ul>
-              <li><a href="">About us</a></li>
-              <li><a href="">Contact us</a></li>
-              <li><a href="">Become a partner</a></li>
-  
-            </ul>
-          </div>
-  
-          <div>
-            <h3>Our policies</h3>
-            <ul>
-              <li><a href="">Refund policy</a></li>
-              <li><a href="">Shipping policy</a></li>
-              <li><a href="">Terms of service</a></li>
-  
-            </ul>
-          </div>
-  
-          <div>
-            <h3>Our products</h3>
-            <ul>
-              <li><a href="">Home page</a></li>
-              <li><a href="">Search</a></li>
-              <li><a href="">Catalog</a></li>
-  
-            </ul>
-          </div>
-        </div>
-        <div>
-          &copy; Yves Rene Shema, 2024
-        </div>
-        
+        <div>{footerColumnList}</div>
+        <div>&copy; Yves Rene Shema, 2024</div>
       </footer>
     </div>
   );
